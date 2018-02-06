@@ -1,4 +1,7 @@
-<div class="margenLeft">
+@extends('layout')
+
+
+@section('content')
 		<div class="row">
 			<div class="col l12">
 				<span><h3 class="center-align">Estadísticas Generales</h3></span>
@@ -31,7 +34,7 @@
 				<canvas id="myChart6"></canvas>
 			</div>
 		</div>
-	</div>
+
 
 	<script>
 
@@ -267,3 +270,4 @@
 
 	});
 </script>
+@endsection

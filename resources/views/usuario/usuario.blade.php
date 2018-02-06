@@ -1,13 +1,8 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-	@include('header')
-</head>
-<body>
-	@include('navbar')
-	@include('footer')
-	<div class="margenLeft ">
+@extends('layout')
+
+
+@section('content')
 	<div class="table90 right-align">
 			<a class="btn-floating btn-large blue waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Crear Usuario" href="usuarios/create"><i class="material-icons large ">add</i></a>
 		</div>
@@ -86,7 +81,7 @@
 			No existen Usuarios...
 		</div>
 		@endif
-	</div>
+	
 </body>
 
 <style>
@@ -109,3 +104,4 @@
 		$('.modal').modal();
 	});
 </script>
+@endsection

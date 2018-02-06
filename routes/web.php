@@ -21,7 +21,7 @@ Route::get('/login', function () {
 
 
 Route::get('/home', function () {
-	return view('home/home');
+	return view('dashboard');
 });
 
 Route::get('/usuarios','UserController@index');
