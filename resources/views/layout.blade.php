@@ -17,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta charset="utf-8">
 	<img style="margin-left: 25%;width: 10%;" 
-	src="{{ URL::asset('/img/logoSMGES.png') }}"><br><label style="margin-left: 26%"> Sistema de Gestión Operacional -  San Martín Gestorías</label>
+	src="{{ URL::asset('/img/logoSMGES.png') }}"><br><label style="margin-left: 26%"> @yield('title') - Sistema de Gestión Operacional - San Martín Gestorías</label>
 </head>
 <body>
 	<ul id="slide-out" class="side-nav fixed">
@@ -39,7 +39,7 @@
 					</div>	
 				</div>
 			</li>
-			<li><a href="/home"><i class="material-icons">home</i>Home</a></li>
+			<li><a href="/dashboard"><i class="material-icons">home</i>Home</a></li>
 			<li><a href="/usuarios"><i class="material-icons">group</i>Usuarios</a></li>
 			<li><a href="/notificaciones"><i class="material-icons">notifications</i>Notificaciones</a></li>
 			<li><a href="#!"><i class="material-icons">business</i>Clientes</a></li>

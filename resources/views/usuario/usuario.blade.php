@@ -1,13 +1,14 @@
 
 @extends('layout')
 
+@section('title',"Listado de Usuarios") 
 
 @section('content')
 	<div class="table90 right-align">
 			<a class="btn-floating btn-large blue waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Crear Usuario" href="usuarios/create"><i class="material-icons large ">add</i></a>
 		</div>
 
-		@if(! empty($users))
+		@if(sizeof($users)>0)
 		<h3 class="center-align">Listado de Usuarios</h3>
 		<table class="highlight table90" >
 			<thead>
@@ -77,8 +78,9 @@
 		</div>
 		@else
 		<div class="sinData">
+			<br>
 			<i class="material-icons large">error</i>
-			No existen Usuarios...
+			No existen Usuarios creados en sistema...
 		</div>
 		@endif
 	
@@ -94,7 +96,7 @@
 }
 .sinData{
 	font-size: 40px;
-	background-color: red;
+	text-align:center;
 }
 </style>
 

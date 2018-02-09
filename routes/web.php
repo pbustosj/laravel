@@ -20,10 +20,12 @@ Route::get('/login', function () {
 });
 
 
-Route::get('/home', function () {
+Route::get('/dashboard', function () {
 	return view('dashboard');
 });
 
 Route::get('/usuarios','UserController@index');
-Route::get('/usuarios/create','UserController@create');
+Route::get('/usuarios/create/{message?}','UserController@create');
+Route::post('/usuarios/save','UserController@save');
+
 Route::get('/notificaciones','NotificationController@index');
