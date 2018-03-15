@@ -44,6 +44,7 @@ class User extends Eloquent
 	];
 
 	protected $fillable = [
+		'iduser',
 		'runuser',
 		'dvuser',
 		'firstnameuser',

@@ -1,4 +1,4 @@
-'<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Status;
 use App\Models\Profile;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -16,8 +17,8 @@ class UserController extends Controller
 		$users = User::all();
 		return view('usuario/usuario',[
 			'users' => $users
-
 		]);
+	
 	}
 
 	public function create($message=null){
@@ -40,14 +41,14 @@ class UserController extends Controller
 	public function save(){
 		$output;
 		$data = request()->all();
+		//dd($this->getLastId());
 		
 		$lastId = intval($this->getLastId())+1;
 		
 		if($this->validateIfExistUser($data['txtRun'])){
 			$output= "Ya existe usuario con run: ".$data['txtRun'];
 
-		}else{ 
-
+		}else{
 			try {
 				User::create([
 					'iduser' => intval($lastId),
@@ -61,7 +62,7 @@ class UserController extends Controller
 					'status_idstatus' => intval($data['txtStatus'])	
 				]);
 
-				//$output= "No existe usuario con run: ".$data['txtRun'];
+				$output= "Usuario Agregado Exitosamente";
 
 			} catch (\Illuminate\Database\QueryException $e) {
 				dd($e);
@@ -69,12 +70,8 @@ class UserController extends Controller
 			} catch (PDOException $e) {
 				dd($e);
 			}     
-			
-			
-			
-
 		}
-		//return redirect('usuarios/create/'.$output);
+		return redirect('usuarios/create/'.$output);
 
 	}
 
@@ -93,7 +90,7 @@ class UserController extends Controller
 		if($count==0){
 			return 0;
 		}
-		return User::orderBy('iduser','desc')->first()->get('iduser');
+		return intval(DB::table('user')->max('iduser'));
 	}
 
 }
@@ -104,4 +101,4 @@ INSERT INTO `user` (`iduser`, `runuser`, `dvuser`, `firstnameuser`, `lastnameuse
 
 INSERT INTO `user` (`iduser`, `runuser`, `dvuser`, `firstnameuser`, `lastnameuser`, `mailuser`, `passuser`, `profile_idprofile`, `status_idstatus`) VALUES ('1', '18702516', '8', 'Pedro', 'Bustos Jorquera', 'pbustosj@sanmartingestorias.cl', '123', '1', '1');
 
-*/'
+*/

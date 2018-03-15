@@ -43,6 +43,7 @@ class Contact extends Eloquent
 	];
 
 	protected $fillable = [
+		'idcontact',
 		'mailcontact',
 		'subjectcontact',
 		'messagecontact',

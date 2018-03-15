@@ -468,7 +468,7 @@
 
     7) Plano del inmueble, si lo hubiera.
 
-    Se recomienda realizar un contrato de promesa de compraventa que comprenda deberes y derechos de las partes de tal manera de establecer un real compromiso de que la transacción se realizará. Ver ejemplo: <a href="http://www.udp.cl/derecho/estudiantes/apuntes/promesa.pdf">Pincha Aquí</a>
+    Se recomienda realizar un contrato de promesa de compraventa que comprenda deberes y derechos de las partes de tal manera de establecer un real compromiso de que la transacción se realizará.
 
     <p>
      <div class="chip">
@@ -488,12 +488,22 @@
     <h4>Otros servicios de San Martin Gestorías:</h4>
   <p>Contamos con una amplia cartera de servicios para empresas y personas naturales:</p>
 
-    <a href="http://www.udp.cl/derecho/estudiantes/apuntes/promesa.pdf">Pincha Aquí</a>
+   <ul>
+     <li>-Certificado Nacimiento</li>
+     <li>-Certificado Defunción</li>
+     <li>-Certificado Matrimonio</li>
+     <li>-Papel de Antecedentes</li>
+     <li>-Hoja de vida conductor</li>
+     <li>-Registro violencia intrafamiliar</li>
+     <li>-Cédula de identidad</li>
+     <li>-Certificado de discapacidad</li>
+    
+   </ul>
 
     <p>
      <div class="chip">
       <img src="{{ URL::asset('/img/icon-404.png') }}" alt="Ir a Fuente">
-      <a href="http://www.cristianreyespropiedades.cl/index.php?opc=30">Fuente: Cristian Reyes Propiedades</a>
+      <a href="http://www.cristianreyespropiedades.cl/index.php?opc=30">Fuente: San Martín Gestorías</a>
     </div>
 
   </p>

@@ -144,7 +144,8 @@ Todos los derechos reservados.
 		$('#body').css('height',height+'px');
 		$('#body').css('margin-top','-15px');
 		$('#body').css('width','100%');
-		$('#body').css('background','url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ydYuAi5/4k-sunrise-in-the-mountains-and-lake-in-torres-del-paine-patagoniachile_vkblkaos__F0003.png")');
+		var imagenYLaCtm = "{{ URL::asset('/img/4k-sunrise-in-the-mountains-and-lake-in-torres-del-paine-patagoniachile_vkblkaos__F0003.png') }}";
+		$('#body').css('background', imagenYLaCtm);
 		$('#body').css('background-size','cover');	
 		$('#body').css('background-repeat','no-repeat');
 		$('.containerLogin').css('width','35%');
@@ -179,7 +180,7 @@ Todos los derechos reservados.
         return false;
 
       }else{
-      	location.href="{{ URL::asset('home') }}";
+      	location.href="{{ URL::asset('dashboard') }}";
       }
 	});	
 	

@@ -11,19 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-	return view('index/index');
-});
+//Ruta para página principal = Index
+Route::get('/{message?}', 'IndexController@index');
 
-Route::get('/login', function () {
-	return view('login/login');
-});
+//Rutas para Login
+Route::get('/login', 'LoginController@index');
 
 
 Route::get('/dashboard', function () {
 	return view('dashboard');
 });
 
+//Rutas de usuario
 Route::get('/usuarios','UserController@index');
 Route::get('/usuarios/create/{message?}','UserController@create');
 Route::post('/usuarios/save','UserController@save');

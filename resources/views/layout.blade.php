@@ -16,11 +16,17 @@
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta charset="utf-8">
-	<img style="margin-left: 25%;width: 10%;" 
-	src="{{ URL::asset('/img/logoSMGES.png') }}"><br><label style="margin-left: 26%"> @yield('title') - Sistema de Gestión Operacional - San Martín Gestorías</label>
+    <a href="#" data-activates="slide-out" class="button-collapse pulse">
+    <img style="width: 10%;" 
+	src="{{ URL::asset('/img/logoSMGES.png') }}"><i class="material-icons medium green-text">menu</i></a>
+	<br><label style=""> @yield('title')  Sistema de Gestión Operacional - San Martín Gestorías</label>
 </head>
 <body>
-	<ul id="slide-out" class="side-nav fixed">
+
+	
+	
+	
+	<ul id="slide-out" class="side-nav">
 		<li>
 			<div class="row fondoPerfil">
 				<div class="user-view col l4" style="margin-top:20px;">
@@ -51,9 +57,10 @@
 			<li><a class="waves waves-effect tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cerrar Sesión"><i class="material-icons">power_settings_new</i>Cerrar Sesión</a></li>
 
 		</ul>
-		
+	
 
-		<div class="margenLeft">
+
+		<div class="containerPbj">
 			@yield('content')
 		</div>
 	</body>
@@ -72,12 +79,21 @@
 		line-height: 25px;
 		margin-top: 20px;
 	}
-	.margenLeft{
-		margin-left: 300px;
+	.containerPbj{
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: -5%;
 	}
 	.fondoPerfil{
-		background-image: url("{{ URL::asset('/img/backgroundProfile2.png') }}");
+		background-color: rgba(1,97,52,0.7);
+		//background-image: url("{{ URL::asset('/img/backgroundProfile2.png') }}");
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
 </style>
+<script>
+	$(document).ready(function(){
+		    $(".button-collapse").sideNav();
+	});
+
+</script>
