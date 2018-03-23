@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\DB;
+
 
 class NotificationController extends Controller
 {
@@ -18,27 +20,31 @@ class NotificationController extends Controller
 	public function save(){
 		$output;
 		$data = request()->all();
-		//dd($this->getLastId());
+		//dd($data);
 		$lastId = intval($this->getLastId())+1;
 		try {
 			Contact::create([
 				'idcontact' => intval($lastId),
-				'mailcontact' => $data['mailcontact'],
-				'subjectcontact' => $data['subjectcontact'],
-				'messagecontact' => $data['messagecontact'],
-				'senddatecontact' => $data['senddatecontact'],
-				'mailuserresponse' => $data['mailuserresponse'],
-				'senddateresponse' => $data['senddateresponse'],
-				'status_idstatus' => intval($data['status_idstatus'])
+				'namecontact' => $data['nomConsulta'],
+				'phonecontact' => intval($data['phoneConsulta']),
+				'mailcontact' => $data['emaConsulta'],
+				'subjectcontact' => $data['asuConsulta'],
+				'messagecontact' => $data['cueMensaje'],
+				'senddatecontact' => date('Y-m-d H:i:s'),
+				'mailuserresponse' => 'desawebchi@gmail.com',
+				'senddateresponse' => null,
+				'status_idstatus' => 0
 			]);
 
-			$output= "Formulario de contacto enviado exitosamente";
+			$output= "Excelente, Formulario de contacto enviado exitosamente";
 
 		} catch (\Illuminate\Database\QueryException $e) {
-			dd($e);
+			$output= "Error, No se ha podido enviar formulario de contacto";
+			//dd($e);
 
 		} catch (PDOException $e) {
-			dd($e);
+			$output= "Error, No se ha podido enviar formulario de contacto";
+			//dd($e);
 		}     
 		
 		return redirect('/'.$output);

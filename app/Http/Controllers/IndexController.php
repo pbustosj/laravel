@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class IndexController extends Controller
 {
@@ -11,10 +12,34 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($message=null, $class=null)
     {
-        return view('index/index');
+     if($message==null){
+         return view('index/index');
+     }   
+     $prefix = explode(',',$message);
+     if($prefix[0]=='Excelente'){
+         return view('index/index',[
+            'message' => $message,
+            'class' => 'green rounded'         
+        ]); 
+     }
+     if($prefix[0]=='Error'){
+         return view('index/index',[
+            'message' => $message,
+            'class' => 'red rounded'        
+        ]); 
+     }
+     else{
+        //dd($message);
+        if(View::exists(''.$message.'/'.$message.'')) {
+           return redirect()->route($message);
+        }
+
     }
+}
+
+
 
     /**
      * Show the form for creating a new resource.

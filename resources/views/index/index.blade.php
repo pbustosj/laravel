@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta charset="utf-8">
+
 </head>
 <body>
   <div class="fixed-action-btn horizontal right" id="subir" style="display: none;">
@@ -31,7 +32,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li class="" id="CONT"><a href="#contacto" class="black-text text-darken-2 ancla"><i class="material-icons left">chat</i>Contáctenos</a></li>
           <li class="" id="CONS"><a href="#consulta" class="black-text text-darken-2 ancla"><i class="material-icons left">search</i>Consultar Estado</a></li>
-          <li class="" id="LOG"><a href="{{ url('login') }}" class="black-text text-darken-2 anclaWeb"><i class="material-icons left">perm_identity</i>Acceso Web</a></li>
+          <li class="" id="LOG"><a href="{{ url('login/login') }}" class="black-text text-darken-2 anclaWeb"><i class="material-icons left">perm_identity</i>Acceso Web</a></li>
         </ul>
       </div>
     </nav>
@@ -191,7 +192,82 @@
 <div class="row container hide-on-med-and-up" id="servicios2" style="opacity: 0;">
   <br>
   <h3 class="green-text text-darken-2 header center">Nuestros Servicios</h3><hr>
-  <ul class="collapsible popout" data-collapsible="accordion">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#test1">Estudio de Título</a></li>
+        <li class="tab col s3"><a class="active" href="#test2">Compra y Venta de Propiedad</a></li>
+        <li class="tab col s3"><a href="#test3">Poseción Efectiva</a></li>
+        <li class="tab col s3"><a href="#test4">Otros</a></li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12">Test 1</div>
+    <div id="test2" class="col s12">Test 2</div>
+    <div id="test3" class="col s12">  <p>La Posesión Efectiva es un trámite que se debe realizar cuando una persona, al morir, ha dejado bienes (casas, vehículos, ahorros, etc.) y sus herederos deben obte...</p>
+      <a href="#modalPE" class="btn-floating waves-effect waves-light green darken-2 modal-trigger"><i class="material-icons">add</i></a> <strong>Leer más.</strong></div>
+      <div id="test4" class="col s12">Test 4</div>
+    </div>
+       <!--<div class="carousel">
+      <div class="col s12 m3 carousel-item">
+        <div class="card-panel small hoverable">
+          <div class="card-image">
+            <center><img src="{{ URL::asset('/img/estudio.png') }}" class="responsive-img cardIma"></center><br>
+            <span class="card-title"><strong>Estudio de Título</strong></span>
+
+          </div>
+          <div class="card-content">
+            <p>El estudio de títulos es el análisis que efectúa un abogado de los antecedentes legales del inmueble que será objeto de la operación, tendiente a que este último sea vendido...</p>
+            <a href="#modalET" class="btn-floating waves-effect waves-light green darken-2 modal-trigger"><i class="material-icons">add</i></a> <strong>Leer más.</strong>
+
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3 carousel-item">
+        <div class="card-panel hoverable">
+          <div class="card-image">
+            <center><img src="{{ URL::asset('/img/casa.png') }}" class="responsive-img cardIma"></center><br>
+            <span class="card-title"><strong>Compra y Venta de Propiedad</strong></span>
+
+          </div>
+          <div class="card-content">
+            <p>
+            Para realizar una compra venta de un bien raíz, el propietario debe tener todos los títulos de los últimos 10 años e hipotecas y gravá...</p>
+            <a href="#modalCV" class="btn-floating waves-effect waves-light green darken-2 modal-trigger"><i class="material-icons">add</i></a> <strong>Leer más.</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m3 carousel-item">
+        <div class="card-panel hoverable">
+          <div class="card-image">
+            <center><img src="{{ URL::asset('/img/posesion.png') }}" class="responsive-img cardIma"></center><br>
+            <span class="card-title">Poseción Efectiva</span>
+
+          </div>
+          <div class="card-content">
+            <p>La Posesión Efectiva es un trámite que se debe realizar cuando una persona, al morir, ha dejado bienes (casas, vehículos, ahorros, etc.) y sus herederos deben obte...</p>
+            <a href="#modalPE" class="btn-floating waves-effect waves-light green darken-2 modal-trigger"><i class="material-icons">add</i></a> <strong>Leer más.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3 carousel-item">
+        <div class="card-panel hoverable">
+          <div class="card-image">
+            <center><img src="{{ URL::asset('/img/otros.png') }}" class="responsive-img cardIma"></center><br>
+            <span class="card-title">Otros</span>
+
+          </div>
+          <div class="card-content">
+            <p>Contamos con un equipo de especialistas dispuestos a solucionar tus dudas con respecto a algún trámite y/u orientarte en el proceso de búsqueda de las herramie...</p>
+            <a href="#modalOt" class="btn-floating waves-effect waves-light green darken-2"><i class="material-icons">add</i></a> <strong>Leer más.</strong
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  <!--<ul class="collapsible popout" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>Estudio de Título</div>
       <div class="collapsible-body"><span>
@@ -240,13 +316,15 @@
         <div class="collapsible-header"><i class="material-icons">whatshot</i>Otros</div>
         <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
       </li>
-    </ul>
+    </ul>-->
   </div>
   <ul class="ped">
-    <div class="row container hide-on-med-and-down" id="servicios">
+    <div class="row container hide-on-med-and-down" id="servicios" >
      <li class="green-text" style="opacity: 0">
       <br>
       <h3 class="green-text text-darken-2 header center">Nuestros Servicios</h3><hr>
+
+      
       <div class="col s12 m3">
         <div class="card-panel hoverable">
           <div class="card-image">
@@ -304,6 +382,8 @@
           </div>
         </div>
       </div>
+
+
     </li>
   </div>
 
@@ -316,37 +396,48 @@
   <h5 class="center blue-grey-text  text-blue-grey lighten-2"> ¿Necesitas nuestra ayuda?. Escríbenos y te responderemos a la brevedad.<br>Estamos aquí para ayudarte.</h5>
   <br>
   <br>
-  <form class="col s12">
+  <form class="col s12" method="POST" action="{{ url('notificaciones/save') }}" id="formSendNotification">
+    {{ csrf_field() }}
     <div class="row">
       <div class="input-field col s12 l6">
         <i class="material-icons prefix">account_circle</i>
-        <input id="nomConsulta" type="text" class="validate">
+        <input  name="nomConsulta" id="nomConsulta" type="text" class="validate">
         <label for="nomConsulta">Nombre y Apellidos</label>
       </div>
       <div class="input-field col s12 l6">
-        <i class="material-icons prefix">email</i>
-        <input id="emaConsulta" type="email" class="validate">
-        <label for="emaConsulta" data-error="Debe escribir email válido." data-success="Email Válido.">Dirección de Correo</label>
+        <i class="material-icons prefix">phone_android</i>
+        <input  name="phoneConsulta" id="phoneConsulta" type="number" class="validate">
+        <label for="nomConsulta">Número de Contacto</label>
       </div>
+
     </div>
     <div class="row">
-      <div class="input-field col s12 l6">
-        <i class="material-icons prefix">subject</i>
-        <input id="asuConsulta" type="text" class="validate">
-        <label for="asuConsulta">Asunto Mensaje</label>
-      </div>
-      <div class="input-field col s12 l6" >
-        <i class="material-icons prefix">description</i>
-        <textarea id="cueMensaje" class="materialize-textarea" style="height: 150px;" data-length="120"></textarea>
-        <label for="cueMensaje">Descripción Mensaje</label>
-      </div>
+     <div class="input-field col s12 l6">
+      <i class="material-icons prefix">email</i>
+      <input  name="emaConsulta" id="emaConsulta" type="email" class="validate">
+      <label for="emaConsulta" data-error="Debe escribir email válido." data-success="Email Válido.">Dirección de Correo</label>
     </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <a id="btnEnviarConsulta" class="btn green" style="display:block;margin:0 auto;">Consultar</a>
-      </div>
+    <div class="input-field col s12 l6">
+      <i class="material-icons prefix">subject</i>
+      <input name="asuConsulta" id="asuConsulta" type="text" class="validate">
+      <label for="asuConsulta">Asunto Mensaje</label>
     </div>
-  </form>
+
+  </div>
+  <div class="row">
+   <div class="input-field col s12 l12" >
+    <i class="material-icons prefix">description</i>
+    <textarea name="cueMensaje" id="cueMensaje" class="materialize-textarea" style="height: 150px;" data-length="120"></textarea>
+    <label for="cueMensaje">Descripción Mensaje</label>
+  </div>
+
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <a id="btnEnviarConsulta" class="btn green" style="display:block;margin:0 auto;">Consultar</a>
+  </div>
+</div>
+</form>
 
 </div>
 
@@ -486,21 +577,22 @@
 <div id="modalOt" class="modal modal-fixed-footer">
   <div class="modal-content">
     <h4>Otros servicios de San Martin Gestorías:</h4>
-  <p>Contamos con una amplia cartera de servicios para empresas y personas naturales:</p>
+    <p>Contamos con una amplia cartera de servicios para empresas y personas naturales:</p>
 
-   <ul>
+    <ul>
      <li>-Certificado Nacimiento</li>
      <li>-Certificado Defunción</li>
      <li>-Certificado Matrimonio</li>
-     <li>-Papel de Antecedentes</li>
+     <li>-Certificado de Antecedentes</li>
      <li>-Hoja de vida conductor</li>
      <li>-Registro violencia intrafamiliar</li>
      <li>-Cédula de identidad</li>
      <li>-Certificado de discapacidad</li>
-    
+     <li>-Entre otros...</li>
+
    </ul>
 
-    <p>
+   <p>
      <div class="chip">
       <img src="{{ URL::asset('/img/icon-404.png') }}" alt="Ir a Fuente">
       <a href="http://www.cristianreyespropiedades.cl/index.php?opc=30">Fuente: San Martín Gestorías</a>
@@ -548,7 +640,7 @@
 </html>
 <script>
   $(document).ready(function(){
-
+    $('.carousel').carousel();
 
     $('.pbj').click(function(){
       $("#inicio").css("opacity", "0");
@@ -667,6 +759,14 @@
 
       }
 
+      if($('#phoneConsulta').val().trim()==''){
+
+        Materialize.toast("Número de contacto es obligatorio.",5000,"rounded red");
+        $('#phoneConsulta').focus();
+        return false;
+
+      }
+
       if($('#emaConsulta').val().trim()==''){
 
         Materialize.toast("Email es obligatorio.",5000,"rounded red");
@@ -698,6 +798,8 @@
       $('#cueMensaje').focus();
       return false;
 
+    }else{
+      $('#formSendNotification').submit();
     }
   });
 
@@ -837,3 +939,14 @@ body{
 
 
 </style>  
+@if(!empty($message) && $message!='login')
+
+<script>
+
+  $(document).ready(function(){
+    Materialize.toast('<?= $message ?>', 5000, '<?= $class ?>');
+  })
+</script>
+{{$message = null }}
+
+@endif

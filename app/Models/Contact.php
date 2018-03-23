@@ -44,6 +44,8 @@ class Contact extends Eloquent
 
 	protected $fillable = [
 		'idcontact',
+		'namecontact',
+		'phonecontact',
 		'mailcontact',
 		'subjectcontact',
 		'messagecontact',
