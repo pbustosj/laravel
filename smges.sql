@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 05, 2018 at 10:54 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 23-03-2018 a las 14:52:48
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `smges`
+-- Base de datos: `smges`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
+-- Estructura de tabla para la tabla `client`
 --
 
 CREATE TABLE `client` (
@@ -41,7 +41,7 @@ CREATE TABLE `client` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clienttype`
+-- Estructura de tabla para la tabla `clienttype`
 --
 
 CREATE TABLE `clienttype` (
@@ -54,7 +54,7 @@ CREATE TABLE `clienttype` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commune`
+-- Estructura de tabla para la tabla `commune`
 --
 
 CREATE TABLE `commune` (
@@ -64,7 +64,7 @@ CREATE TABLE `commune` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `commune`
+-- Volcado de datos para la tabla `commune`
 --
 
 INSERT INTO `commune` (`idcommune`, `namecommune`, `province_idprovince`) VALUES
@@ -418,7 +418,7 @@ INSERT INTO `commune` (`idcommune`, `namecommune`, `province_idprovince`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `configuration`
+-- Estructura de tabla para la tabla `configuration`
 --
 
 CREATE TABLE `configuration` (
@@ -430,24 +430,45 @@ CREATE TABLE `configuration` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact`
+-- Estructura de tabla para la tabla `contact`
 --
 
 CREATE TABLE `contact` (
   `idcontact` decimal(10,0) NOT NULL,
+  `nameContact` varchar(200) DEFAULT NULL,
+  `phoneContact` int(12) DEFAULT NULL,
   `mailcontact` varchar(100) NOT NULL,
   `subjectcontact` varchar(80) NOT NULL,
   `messagecontact` varchar(200) NOT NULL,
-  `senddatecontact` date NOT NULL,
+  `senddatecontact` datetime NOT NULL,
   `mailuserresponse` varchar(100) NOT NULL,
-  `senddateresponse` date NOT NULL,
+  `senddateresponse` datetime DEFAULT NULL,
   `status_idstatus` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `contact`
+--
+
+INSERT INTO `contact` (`idcontact`, `nameContact`, `phoneContact`, `mailcontact`, `subjectcontact`, `messagecontact`, `senddatecontact`, `mailuserresponse`, `senddateresponse`, `status_idstatus`) VALUES
+('1', NULL, NULL, 'asdas@asdas.cl', 'qwe', 'qweqw', '2018-03-22 00:00:00', 'desawebchi@gmail.com', NULL, '0'),
+('2', NULL, NULL, 'test@test.cl', 'asdasdasd', '\"longer\" than the format string like in this case: Carbon::createFromFormat(\'Y-m-d H:i\', \'2017-01-02 00:27:00\')', '2018-03-22 00:00:00', 'desawebchi@gmail.com', NULL, '0'),
+('3', NULL, NULL, 'qweqwe@asdasdac.cl', 'asdasdas', 'Carbon will throw:\r\n\r\nInvalidArgumentException in Carbon.php line 425:\r\nData missing', '2018-03-22 00:00:00', 'desawebchi@gmail.com', NULL, '0'),
+('4', NULL, NULL, 'asdas@asdas.cl', 'asdasdasd', 'asdasdasdas', '2018-03-22 13:27:07', 'desawebchi@gmail.com', NULL, '0'),
+('5', NULL, NULL, 'bustos.jorquera.pedro@gmail.com', 'query', 'I have a dude about your services. i\'m american boy and i need your help yo get mi ID in chile.\r\n\r\nI stay wait for your answer.\r\n\r\nThanks!', '2018-03-22 13:29:57', 'desawebchi@gmail.com', NULL, '0'),
+('6', 'tsasdasd', 2147483647, 'asdas@asdas.cl', 'adasda', 'asdasdasdasd', '2018-03-22 13:41:58', 'desawebchi@gmail.com', NULL, '0'),
+('7', 'pedro bustos', 985207643, 'bustos.jorquera.pedro@gmail.com', 'asdasdasdsadasd', 'asdasdasjlasfhalsdfha\r\nasdassdfsdfsdfsdfsdf', '2018-03-22 13:46:30', 'desawebchi@gmail.com', NULL, '0'),
+('8', 'asd', 2123131, 'asdas@asdas.cl', 'asdasdasd', 'adasdas', '2018-03-22 13:49:52', 'desawebchi@gmail.com', NULL, '0'),
+('9', 'asdasdas', 2123123, 'asdas@asdas.cl', 'asdasd', 'asd', '2018-03-22 13:51:44', 'desawebchi@gmail.com', NULL, '0'),
+('10', 'asdasdas', 2123123, 'asdas@asdas.cl', 'asdasd', 'asd', '2018-03-22 13:59:51', 'desawebchi@gmail.com', NULL, '0'),
+('11', 'asdasj', 123123123, 'asdas@asdas.cl', '123', 'qweqqweqwe\r\n\r\n\r\n\r\n\r\natt-adad', '2018-03-22 14:00:42', 'desawebchi@gmail.com', NULL, '0'),
+('12', 'askljh', 2147483647, 'asdkjashdlasdhaslkdjh@asdasd.cl', 'asdñasdasd', 'asdasdasfdfasdfqwerqrwe', '2018-03-23 13:29:08', 'desawebchi@gmail.com', NULL, '0'),
+('13', 'askljh', 2147483647, 'asdkjashdlasdhaslkdjh@asdasd.cl', 'asdñasdasd', 'asdasdasfdfasdfqwerqrwe', '2018-03-23 13:29:09', 'desawebchi@gmail.com', NULL, '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `item`
+-- Estructura de tabla para la tabla `item`
 --
 
 CREATE TABLE `item` (
@@ -460,7 +481,7 @@ CREATE TABLE `item` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modules`
+-- Estructura de tabla para la tabla `modules`
 --
 
 CREATE TABLE `modules` (
@@ -473,7 +494,7 @@ CREATE TABLE `modules` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile`
+-- Estructura de tabla para la tabla `profile`
 --
 
 CREATE TABLE `profile` (
@@ -484,7 +505,7 @@ CREATE TABLE `profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `profile`
+-- Volcado de datos para la tabla `profile`
 --
 
 INSERT INTO `profile` (`idprofile`, `nameprofile`, `descriptionprofile`, `status_idstatus`) VALUES
@@ -493,7 +514,7 @@ INSERT INTO `profile` (`idprofile`, `nameprofile`, `descriptionprofile`, `status
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profilemodule`
+-- Estructura de tabla para la tabla `profilemodule`
 --
 
 CREATE TABLE `profilemodule` (
@@ -505,7 +526,7 @@ CREATE TABLE `profilemodule` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `province`
+-- Estructura de tabla para la tabla `province`
 --
 
 CREATE TABLE `province` (
@@ -515,7 +536,7 @@ CREATE TABLE `province` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `province`
+-- Volcado de datos para la tabla `province`
 --
 
 INSERT INTO `province` (`idprovince`, `nameprovince`, `region_idregion`) VALUES
@@ -577,7 +598,7 @@ INSERT INTO `province` (`idprovince`, `nameprovince`, `region_idregion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `region`
+-- Estructura de tabla para la tabla `region`
 --
 
 CREATE TABLE `region` (
@@ -587,7 +608,7 @@ CREATE TABLE `region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `region`
+-- Volcado de datos para la tabla `region`
 --
 
 INSERT INTO `region` (`idregion`, `nameregion`, `iso_3166_2_cl`) VALUES
@@ -610,7 +631,7 @@ INSERT INTO `region` (`idregion`, `nameregion`, `iso_3166_2_cl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `request`
+-- Estructura de tabla para la tabla `request`
 --
 
 CREATE TABLE `request` (
@@ -625,7 +646,7 @@ CREATE TABLE `request` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `requestdetails`
+-- Estructura de tabla para la tabla `requestdetails`
 --
 
 CREATE TABLE `requestdetails` (
@@ -645,7 +666,7 @@ CREATE TABLE `requestdetails` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status`
+-- Estructura de tabla para la tabla `status`
 --
 
 CREATE TABLE `status` (
@@ -656,7 +677,7 @@ CREATE TABLE `status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `status`
+-- Volcado de datos para la tabla `status`
 --
 
 INSERT INTO `status` (`idstatus`, `namestatus`, `descriptionstatus`, `tipeofstatus`) VALUES
@@ -666,7 +687,7 @@ INSERT INTO `status` (`idstatus`, `namestatus`, `descriptionstatus`, `tipeofstat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subitem`
+-- Estructura de tabla para la tabla `subitem`
 --
 
 CREATE TABLE `subitem` (
@@ -680,7 +701,7 @@ CREATE TABLE `subitem` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Estructura de tabla para la tabla `user`
 --
 
 CREATE TABLE `user` (
@@ -696,18 +717,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Volcado de datos para la tabla `user`
 --
 
 INSERT INTO `user` (`iduser`, `runuser`, `dvuser`, `firstnameuser`, `lastnameuser`, `mailuser`, `passuser`, `profile_idprofile`, `status_idstatus`) VALUES
-('1', '18702516', '8', 'Pedro', 'Bustos', 'pbustosj@sanmartingestorias.cl', '123', '1', '1');
+('1', '18702516', '8', 'Pedro Fabián', 'Bustos Jorquera', 'pbustosj@sanmartingestorias.cl', '123', '1', '1'),
+('2', '17372877', '8', 'Venecia Guisella', 'Barahona Concha', 'vbarahona@sanmartingestorias.cl', '123', '1', '1'),
+('3', '9970750', 'K', 'Test', '123', 'asdasdasd@asdasd.cl', '123', '1', '0');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `client`
+-- Indices de la tabla `client`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`idclient`),
@@ -715,55 +738,55 @@ ALTER TABLE `client`
   ADD KEY `client_status_fk` (`status_idstatus`);
 
 --
--- Indexes for table `clienttype`
+-- Indices de la tabla `clienttype`
 --
 ALTER TABLE `clienttype`
   ADD PRIMARY KEY (`idclienttype`),
   ADD KEY `clienttype_status_fk` (`status_idstatus`);
 
 --
--- Indexes for table `commune`
+-- Indices de la tabla `commune`
 --
 ALTER TABLE `commune`
   ADD PRIMARY KEY (`idcommune`),
   ADD KEY `commune_province_fk` (`province_idprovince`);
 
 --
--- Indexes for table `configuration`
+-- Indices de la tabla `configuration`
 --
 ALTER TABLE `configuration`
   ADD PRIMARY KEY (`idconfiguration`);
 
 --
--- Indexes for table `contact`
+-- Indices de la tabla `contact`
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`idcontact`),
   ADD KEY `contact_status_fk` (`status_idstatus`);
 
 --
--- Indexes for table `item`
+-- Indices de la tabla `item`
 --
 ALTER TABLE `item`
   ADD PRIMARY KEY (`iditem`),
   ADD KEY `item_status_fk` (`status_idstatus`);
 
 --
--- Indexes for table `modules`
+-- Indices de la tabla `modules`
 --
 ALTER TABLE `modules`
   ADD PRIMARY KEY (`idmodule`),
   ADD KEY `modules_status_fk` (`status_idstatus`);
 
 --
--- Indexes for table `profile`
+-- Indices de la tabla `profile`
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`idprofile`),
   ADD KEY `profile_status_fk` (`status_idstatus`);
 
 --
--- Indexes for table `profilemodule`
+-- Indices de la tabla `profilemodule`
 --
 ALTER TABLE `profilemodule`
   ADD PRIMARY KEY (`idprofilemodule`),
@@ -771,20 +794,20 @@ ALTER TABLE `profilemodule`
   ADD KEY `profilemodule_profile_fk` (`profile_idprofile`);
 
 --
--- Indexes for table `province`
+-- Indices de la tabla `province`
 --
 ALTER TABLE `province`
   ADD PRIMARY KEY (`idprovince`),
   ADD KEY `province_region_fk` (`region_idregion`);
 
 --
--- Indexes for table `region`
+-- Indices de la tabla `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`idregion`);
 
 --
--- Indexes for table `request`
+-- Indices de la tabla `request`
 --
 ALTER TABLE `request`
   ADD PRIMARY KEY (`idrequest`),
@@ -793,7 +816,7 @@ ALTER TABLE `request`
   ADD KEY `request_user_fk` (`iduserplanner`);
 
 --
--- Indexes for table `requestdetails`
+-- Indices de la tabla `requestdetails`
 --
 ALTER TABLE `requestdetails`
   ADD PRIMARY KEY (`idrequestdetail`),
@@ -804,13 +827,13 @@ ALTER TABLE `requestdetails`
   ADD KEY `requestdetails_user_fk` (`iduserincharge`);
 
 --
--- Indexes for table `status`
+-- Indices de la tabla `status`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`idstatus`);
 
 --
--- Indexes for table `subitem`
+-- Indices de la tabla `subitem`
 --
 ALTER TABLE `subitem`
   ADD PRIMARY KEY (`idsubitem`),
@@ -818,7 +841,7 @@ ALTER TABLE `subitem`
   ADD KEY `subitem_status_fk` (`status_idstatus`);
 
 --
--- Indexes for table `user`
+-- Indices de la tabla `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`iduser`),
@@ -826,67 +849,67 @@ ALTER TABLE `user`
   ADD KEY `user_status_fk` (`status_idstatus`);
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `client`
+-- Filtros para la tabla `client`
 --
 ALTER TABLE `client`
   ADD CONSTRAINT `client_clienttype_fk` FOREIGN KEY (`clienttype_idclienttype`) REFERENCES `clienttype` (`idclienttype`),
   ADD CONSTRAINT `client_status_fk` FOREIGN KEY (`status_idstatus`) REFERENCES `status` (`idstatus`);
 
 --
--- Constraints for table `clienttype`
+-- Filtros para la tabla `clienttype`
 --
 ALTER TABLE `clienttype`
   ADD CONSTRAINT `clienttype_status_fk` FOREIGN KEY (`status_idstatus`) REFERENCES `status` (`idstatus`);
 
 --
--- Constraints for table `commune`
+-- Filtros para la tabla `commune`
 --
 ALTER TABLE `commune`
   ADD CONSTRAINT `commune_province_fk` FOREIGN KEY (`province_idprovince`) REFERENCES `province` (`idprovince`);
 
 --
--- Constraints for table `contact`
+-- Filtros para la tabla `contact`
 --
 ALTER TABLE `contact`
   ADD CONSTRAINT `contact_status_fk` FOREIGN KEY (`status_idstatus`) REFERENCES `status` (`idstatus`);
 
 --
--- Constraints for table `item`
+-- Filtros para la tabla `item`
 --
 ALTER TABLE `item`
   ADD CONSTRAINT `item_status_fk` FOREIGN KEY (`status_idstatus`) REFERENCES `status` (`idstatus`);
 
 --
--- Constraints for table `modules`
+-- Filtros para la tabla `modules`
 --
 ALTER TABLE `modules`
   ADD CONSTRAINT `modules_status_fk` FOREIGN KEY (`status_idstatus`) REFERENCES `status` (`idstatus`);
 
 --
--- Constraints for table `profile`
+-- Filtros para la tabla `profile`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `profile_status_fk` FOREIGN KEY (`status_idstatus`) REFERENCES `status` (`idstatus`);
 
 --
--- Constraints for table `profilemodule`
+-- Filtros para la tabla `profilemodule`
 --
 ALTER TABLE `profilemodule`
   ADD CONSTRAINT `profilemodule_modules_fk` FOREIGN KEY (`modules_idmodule`) REFERENCES `modules` (`idmodule`),
   ADD CONSTRAINT `profilemodule_profile_fk` FOREIGN KEY (`profile_idprofile`) REFERENCES `profile` (`idprofile`);
 
 --
--- Constraints for table `province`
+-- Filtros para la tabla `province`
 --
 ALTER TABLE `province`
   ADD CONSTRAINT `province_region_fk` FOREIGN KEY (`region_idregion`) REFERENCES `region` (`idregion`);
 
 --
--- Constraints for table `request`
+-- Filtros para la tabla `request`
 --
 ALTER TABLE `request`
   ADD CONSTRAINT `request_client_fk` FOREIGN KEY (`client_idclient`) REFERENCES `client` (`idclient`),
@@ -894,7 +917,7 @@ ALTER TABLE `request`
   ADD CONSTRAINT `request_user_fk` FOREIGN KEY (`iduserplanner`) REFERENCES `user` (`iduser`);
 
 --
--- Constraints for table `requestdetails`
+-- Filtros para la tabla `requestdetails`
 --
 ALTER TABLE `requestdetails`
   ADD CONSTRAINT `requestdetails_commune_fk` FOREIGN KEY (`commune_idcommune`) REFERENCES `commune` (`idcommune`),
@@ -904,14 +927,14 @@ ALTER TABLE `requestdetails`
   ADD CONSTRAINT `requestdetails_user_fk` FOREIGN KEY (`iduserincharge`) REFERENCES `user` (`iduser`);
 
 --
--- Constraints for table `subitem`
+-- Filtros para la tabla `subitem`
 --
 ALTER TABLE `subitem`
   ADD CONSTRAINT `subitem_item_fk` FOREIGN KEY (`item_iditem`) REFERENCES `item` (`iditem`),
   ADD CONSTRAINT `subitem_status_fk` FOREIGN KEY (`status_idstatus`) REFERENCES `status` (`idstatus`);
 
 --
--- Constraints for table `user`
+-- Filtros para la tabla `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_profile_fk` FOREIGN KEY (`profile_idprofile`) REFERENCES `profile` (`idprofile`),
