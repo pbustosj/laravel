@@ -9,17 +9,21 @@
 
 </head>
 <body>
+  <!--Inicio Botón para subir-->
   <div class="fixed-action-btn horizontal right" id="subir" style="display: none;">
     <a class="btn-floating btn-large black ancla" href="#inicio">
       <i class="material-icons large">publish</i>
     </a>
   </div>
-  <div class="navbar-fixed white" id="inicio" >
+  <!--Fin Botón para subir-->
+
+
+  <div class="navbar-fixed " id="inicio" >
 
     <!--Inicio Menú Web-->
-    <nav class="grey lighten-3 hide-on-med-and-down" id="divNav" style="height: 100px;">
+    <nav class="hide-on-med-and-down" id="divNav" style="height: 100px; background-color: rgba(228, 255, 205,0.5)">
       <div class="nav-wrapper" >
-        <a class="brand-logo center black-text ancla2" href="#quienesSomos">
+        <a class="brand-logo center black-text ancla2" href="#comoLoHacemos">
           <img id="logoSMGES2" src="{{ URL::asset('/img/logoSMGES.png') }}" class="hide-on-med-and-down" style="width:180px;height:100px;">
 
         </a>
@@ -171,6 +175,7 @@
        </div>
      </li>
    </div>
+
    <div class="row container" id="quienesSomosFooter">
     <li class="green-text" style="opacity: 0">
      <div class="col l3 s6"><img src="{{ URL::asset('/img/file.png') }}" alt="" class="qS  tooltipped" data-position="top" data-delay="50" data-tooltip="Vasta experiencia en gestión y tramitación de documentos legales."></div>
@@ -322,7 +327,7 @@
     <div class="row container hide-on-med-and-down" id="servicios" >
      <li class="green-text" style="opacity: 0">
       <br>
-      <h3 class="green-text text-darken-2 header center">Nuestros Servicios</h3><hr>
+      <h3 class="green-text text-darken-2 header center">Nuestros Servicios</h3><br>
 
       
       <div class="col s12 m3">
@@ -389,6 +394,30 @@
 
 </ul>
 <br>
+<div class="row container" id="comoLoHacemos" style="opacity: 0;">
+  <h3 class="green-text text-darken-2 header center">¿Cómo funciona?</h3><br>
+  <h6><p>A continuación presentamos una guía que detalla paso a paso la metodología y funcionamiento de nuestro sistema y nuestros servicios. Lo invitamos a leer cada uno de ellos y enterárse de como San Martín Gestorías se destaca de entre sus pares:</p></h6><br>
+  <ul class="collapsible">
+    <li class="">
+      <div class="active collapsible-header light-green lighten-3"><i class="material-icons">filter_1</i>Primer Paso: Envíar Formulario de contacto</div>
+      <div class="collapsible-body"><span>Completa nuestro formulario de contacto y envíanos tu consulta.<br>Es necesario completar todos los datos solicitados de manera clara y correcta para poder tomar contacto a la brevedad. Uno de nuestros ejecutivos se encargará de resolver ésta y entregarte la información vía correo electrónico o telefónica.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header light-green lighten-2"><i class="material-icons">filter_2</i>Segundo Paso: Solicitar Servicio y coordinar con SMGES</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header light-green lighten-1"><i class="material-icons">filter_3</i>Tercer Paso: Consultar Estado Solicitud</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header light-green"><i class="material-icons">filter_3</i>Cuarto Paso: Recibir Dcoumentación Solicitud</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+  </ul>
+
+
+</div>
 <div class="row container" id="contacto" style="opacity: 0;">
 
   <h3 class="green-text text-darken-2 header center">Contáctenos</h3><hr>
@@ -816,7 +845,7 @@
      $("#inicio").css("opacity", "1");
    });
     $("#inicio").mouseout(function(){
-     //$("#inicio").css("opacity", "0");
+     $("#inicio").css("opacity", "0");
    });
 
     $('li').bind("click", function () {
@@ -863,7 +892,10 @@
       selector: '#servicios2', offset: 0, callback: function(el) { 
        Materialize.fadeInImage($(el)); 
      } },  
-     
+     {
+      selector: '#comoLoHacemos', offset: 0, callback: function(el) { 
+       Materialize.fadeInImage($(el)); 
+     } },
      {
       selector: '#clientes', offset: 0, callback: function(el) { 
        Materialize.fadeInImage($(el)); 
@@ -872,6 +904,8 @@
       selector: '#contacto', offset: 0, callback: function(el) { 
        Materialize.fadeInImage($(el)); 
      } },
+
+
 
      ];
 
@@ -915,6 +949,20 @@ body{
   -moz-transform: scale(2);
   -webkit-transform: scale(2);
   transform: scale(2);
+}
+
+.collapsible-header{
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.collapsible-header:hover{
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 }
 .cardIma{

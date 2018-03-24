@@ -111,8 +111,7 @@
 			$('#body').css('height',height+'px');
 			$('#body').css('margin-top','-15px');
 			$('#body').css('width','100%');
-			var imagenYLaCtm = "{{ URL::asset('/img/4k-sunrise-in-the-mountains-and-lake-in-torres-del-paine-patagoniachile_vkblkaos__F0003.png') }}";
-			$('#body').css('background', imagenYLaCtm);
+			
 			$('#body').css('background-size','cover');	
 			$('#body').css('background-repeat','no-repeat');
 			$('.containerLogin').css('width','35%');
@@ -146,3 +145,8 @@
 			}
 		});	
 	</script>
+	<style>
+	#body{
+		background: url("{{ URL::asset('/img/4k-sunrise-in-the-mountains-and-lake-in-torres-del-paine-patagoniachile_vkblkaos__F0003.png') }}");
+	}
+</style>
