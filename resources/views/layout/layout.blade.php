@@ -4,6 +4,7 @@
 <head>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Oxygen|Ubuntu" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	<!--Import materialize.css-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<script
@@ -13,6 +14,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta charset="utf-8">
@@ -39,7 +41,7 @@
 				</li>
 				<li><a href="/dashboard/dashboard"><i class="material-icons">home</i>Home</a></li>
 				<li><a href="/user/user"><i class="material-icons">group</i>Usuarios</a></li>
-				<li><a href="/notificaciones"><i class="material-icons">notifications</i>Notificaciones</a></li>
+				<li><a href="/notificaciones/notificaciones"><i class="material-icons">notifications</i>Notificaciones</a></li>
 				<li><a href="#!"><i class="material-icons">business</i>Clientes</a></li>
 				<li><a href="#!"><i class="material-icons">work</i>Solicitudes</a></li>
 				<li><a ><i class="material-icons">settings</i>Configuración</a></li>
@@ -81,5 +83,6 @@
 	<script>
 		$(document).ready(function(){
 			$(".button-collapse").sideNav();
+			$('.tablePbj').DataTables();
 		});
 	</script>

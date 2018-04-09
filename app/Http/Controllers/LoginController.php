@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use UserController;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -81,5 +81,21 @@ class LoginController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function validateLogin(){
+        $datos = request()->all();
+      //  dd($datos);
+        $exist = User:: where([
+            ['mailuser',$datos['usuarioQl']],
+             ['passuser',$datos['contraQl']]
+        ])->get();
+        dd($exist);
+        if(sizeof($exist)>0){
+            return true;
+        }
+        return false;
+
+
     }
 }

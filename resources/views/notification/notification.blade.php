@@ -1,5 +1,5 @@
-
-@extends('layout')
+<?php use \App\Http\Controllers\NotificationController;?>
+@extends('../layout/layout')
 
 @section('title',"Listado de Notificaciones - ") 
 
@@ -8,148 +8,85 @@
 	<br><br>
 </div>
 <h3 class="center-align">Notificaciones</h3>
-@if(sizeof($notifications)>0)
-<table class="highlight table90" >
-	<thead>
-		<tr class="amber lighten-2 ">
-			<th>Id</th>
-			<th>Mail</th>
-			<th>Asunto</th>
-			<th>Mensaje</th>
-			<th>Fecha y Hora Consulta</th>
-			<th>Fecha y Hora Respuesta</th>
-			<th>Estado</th>
-			<th>Acción</th>
+@if(isset($notifications) && sizeof($notifications)>0)
+<div class="row">
+	<div class="col l12">
+		<table class="highlight tablePbj">
+			<thead>
+				<tr class="amber lighten-2 ">
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Teléfono</th>
+					<th>Mail</th>
+					<th>Asunto</th>
+					<th>Mensaje</th>
+					<th>Fecha y Hora Consulta</th>
+					<th>Usuario Asignado</th>
+					<th>Fecha y Hora Respuesta</th>
+					<th>Estado</th>
+					<th>Acción</th>
+				</tr>
+			</thead>
 
+			<tbody>
 
+				<tr class="" >
+					@foreach($notifications as $notification)
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->idcontact)}}
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->nameContact)}}
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->phoneContact)}}
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->mailcontact)}}
 
-		</tr>
-	</thead>
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->subjectcontact)}}
 
-	<tbody>
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->messagecontact)}}
 
-		<tr class="" >
-			<td>
-				1
-			</td>
-			<td>
-				bustos.jorquera.pedro@gmail.com
-			</td>
-			<td>
-				Consulta Servicio
-			</td>
-			<td>
-				Hola queria saber cuanto cuesta documento de antecedentes.
-			</td>
-			<td>
-				01/02/2018 06:30 PM
-			</td>
-			<td>
-				01/02/2018 08:30 PM
-			</td>
-			<td>
-				Resuelto
-			</td>
-			<td>
-				<i class="material-icons green-text">remove_red_eye</i>
-			</td>
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->senddatecontact)}}
 
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->mailuserresponse)}}
 
-		</tr>	
-		<tr class="">
-			<td>
-				1
-			</td>
-			<td>
-				bustos.jorquera.pedro@gmail.com
-			</td>
-			<td>
-				Consulta Servicio
-			</td>
-			<td>
-				Hola queria saber cuanto cuesta documento de antecedentes.
-			</td>
-			<td>
-				01/02/2018 06:30 PM
-			</td>
-			<td>
-				s/d
-			</td>
-			<td>
-				Pendiente
-			</td>
-			<td>
-				<i class="material-icons red-text">reply</i>
-			</td>
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->senddateresponse)}}
 
+					</td>
+					<td>
+						{{NotificationController::replaceAllNUllOrUndefinded($notification->status_idstatus)}}
 
-		</tr>
-		<tr class="" >
-			<td>
-				1
-			</td>
-			<td>
-				bustos.jorquera.pedro@gmail.com
-			</td>
-			<td>
-				Consulta Servicio
-			</td>
-			<td>
-				Hola queria saber cuanto cuesta documento de antecedentes.
-			</td>
-			<td>
-				01/02/2018 06:30 PM
-			</td>
-			<td>
-				01/02/2018 08:30 PM
-			</td>
-			<td>
-				Resuelto
-			</td>
-			<td>
-				<i class="material-icons green-text">remove_red_eye</i>
-			</td>
+					</td>
+					<td>
+						<i class="material-icons green-text">remove_red_eye</i>
+					</td>
 
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
 
-		</tr>	
-		<tr class="">
-			<td>
-				1
-			</td>
-			<td>
-				bustos.jorquera.pedro@gmail.com
-			</td>
-			<td>
-				Consulta Servicio
-			</td>
-			<td>
-				Hola queria saber cuanto cuesta documento de antecedentes.
-			</td>
-			<td>
-				01/02/2018 06:30 PM
-			</td>
-			<td>
-				s/d
-			</td>
-			<td>
-				Pendiente
-			</td>
-			<td>
-				<i class="material-icons red-text">reply</i>
-			</td>
-
-
-		</tr>
-	</tbody>
-</table>
-
-<div id="modal1" class="modal modal-fixed-footer">
-	<div class="modal-content">
-		<h4>Modal Header</h4>
-		<p>A bunch of text</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+		<div id="modal1" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<h4>Modal Header</h4>
+				<p>A bunch of text</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+			</div>
+		</div>
 	</div>
 </div>
 @else
@@ -183,17 +120,23 @@
 }
 .table90{
 	margin: 0 auto;
+	width: 20%;
 }
 .sinData{
 	font-size: 40px;
 	text-align:center;
 }
+
+
 </style>
 <script>
 	
 	$(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
+    $('.tablePbj').DataTable({
+    	'width': 50%
+    });
 });
 </script>
 @endsection

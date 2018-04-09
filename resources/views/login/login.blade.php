@@ -23,7 +23,8 @@
 						<div class="col l12"><h4 style="font-weight: bold;">Iniciar Sesión</h4> <hr></div>  
 					</div>
 					<div class="row">
-						<form class="col s12" action="./loginServlet" method="POST" id="frmLogin">
+						<form class="col s12" action="{{ url('login/validatelogin') }}" method="POST" id="frmLogin">
+							 {{ csrf_field() }}
 							<div class="row">
 								<div class="col l12 center">
 									<div class="row">
@@ -141,7 +142,8 @@
 				$('#contraQl').focus();
 				return false;
 			}else{
-				location.href="{{ URL::asset('dashboard/dashboard') }}";
+				//location.href="{{ URL::asset('dashboard/dashboard') }}";
+				$('#frmLogin').submit();
 			}
 		});	
 	</script>

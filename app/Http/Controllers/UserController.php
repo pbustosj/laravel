@@ -107,9 +107,6 @@ class UserController extends Controller
 		if($count==0){
 			return 0;
 		}
-		if($count==1){
-			return 1;
-		}
 		return intval(DB::table('user')->max('iduser'));
 	}
 
@@ -145,6 +142,10 @@ class UserController extends Controller
 				'statues' => $statues
 			]);
 		}
+	}
+
+	public function replaceAllNUllOrUndefinded($value){
+		return $value=='' || $value== null ? 'Sin Datos' : $value;  
 	}
 }
 

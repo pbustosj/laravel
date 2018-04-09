@@ -16,6 +16,7 @@ Route::get('/{message?}', 'IndexController@index');
 
 //Rutas para Login
 Route::get('/login/login',['as'=> 'login/login', 'uses'=> 'LoginController@index']);
+Route::post('/login/validatelogin','LoginController@validateLogin');
 
 //Ruta para dashboard
 Route::get('/dashboard/dashboard',['as'=> 'dashboard/dashboard', 'uses'=> 'DashboardController@index'] );
@@ -30,5 +31,5 @@ Route::post('/user/update','UserController@update');
 Route::post('/user/desactive','UserController@changeStatusUser');
 
 //Rutas para notificaciones
-Route::get('/notificaciones','NotificationController@index');
+Route::get('/notificaciones/notificaciones',['as'=>'notificaciones/notificaciones', 'uses'=>'NotificationController@index']);
 Route::post('/notificaciones/save','NotificationController@save');
